@@ -732,6 +732,22 @@
           expect(dropdown.invalid).to.be.false;
         });
 
+        it('should not set invalid when is required, value is empty on initial empty string', () => {
+          expect(dropdown.invalid).to.be.false;
+          dropdown.setAttribute('required', '');
+          dropdown.setAttribute('value', '');
+
+          expect(dropdown.invalid).to.be.false;
+        });
+
+        it('should not set invalid when is required, value is null on initial empty string', () => {
+          expect(dropdown.invalid).to.be.false;
+          dropdown.setAttribute('required', '');
+          dropdown.setAttribute('value', null);
+
+          expect(dropdown.invalid).to.be.false;
+        });
+
         it('Should validate when closing the overlay', () => {
           const spy = sinon.spy();
           dropdown.validate = spy;
